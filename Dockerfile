@@ -23,7 +23,6 @@ RUN apt-get update && \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 ENV CPU_THREADS=50
-ENV SERVER_PORT=7976
 
 COPY --from=builder /src/target/release/nano-work-server /usr/local/bin/
 
@@ -31,4 +30,4 @@ RUN chmod +x /usr/local/bin/nano-work-server
 
 EXPOSE 7076
 
-CMD ["sh","-c", "nano-work-server -c ${CPU_THREADS} -l [::ffff:0.0.0.0]:${SERVER_PORT}"]
+CMD ["sh","-c", "nano-work-server -c ${CPU_THREADS} -l [::ffff:0.0.0.0]:7076"]
