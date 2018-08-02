@@ -52,7 +52,8 @@ fn work_value(root: [u8; 32], work: [u8; 8]) -> u64 {
 
 #[inline]
 fn work_valid(root: [u8; 32], work: [u8; 8]) -> bool {
-    work_value(root, work) >= 0xffffffc000000000
+    // work_value(root, work) >= 0xffffffc000000000
+    work_value(root, work) >= 0xfffffe0000000000
 }
 
 enum WorkError {
